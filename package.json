@@ -1,0 +1,20 @@
+{
+  "name": "friendly-rolls",
+  "version": "1.0.0",
+  "description": "A collabortive DnD experience featuring player/DM interaction, DM campaign tools, etc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FriendlyRolls/friendly-rolls.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FriendlyRolls/friendly-rolls/issues"
+  },
+  "homepage": "https://github.com/FriendlyRolls/friendly-rolls#readme"
+}
