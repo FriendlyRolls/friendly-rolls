@@ -1,32 +1,24 @@
-var path = require("path");
+var webpack = require('webpack');
+var path = require('path');
 
-module.exports = {
-  // This is the entry point or start of our react applicaton
-  entry: "./app/App.js",
-  // The plain compiled JavaScript will be output into this file
+var BUILD_DIR = path.resolve(__dirname, 'src/client/public');
+var APP_DIR = path.resolve(__dirname, 'src/client/app');
+
+var config = {
+  entry: APP_DIR + '/index.jsx',
   output: {
-    filename: "public/bundle.js"
+    path: BUILD_DIR,
+    filename: 'bundle.js'
   },
-  watch: true,
-
-  // This section desribes the transformations we will perform
-  module: {
-    loaders: [
+  module : {
+    loaders : [
       {
-        // Only working with files that in in a .js or .jsx extension
-        test: /\.jsx?$/,
-        // Webpack will only process files in our app folder. This avoids processing
-        // node modules and server files unnecessarily
-        include: /app/,
-        loader: "babel-loader",
-        query: {
-          // These are the specific transformations we'll be using.
-          presets: ["react", "es2015"]
-        }
+        test : /\.jsx?/,
+        include : APP_DIR,
+        loader : 'Babel-loader'
       }
     ]
-  },
-  // This lets us debug our react code in chrome dev tools. Errors will have lines and file names
-  // Without this the console says all errors are coming from just coming from bundle.js
-  devtool: "eval-source-map"
+  }
 };
+
+module.exports = config;
