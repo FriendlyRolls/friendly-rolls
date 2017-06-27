@@ -1,5 +1,4 @@
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-// var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 import React, { Component } from 'react';
 
 class Modal extends Component {
@@ -7,8 +6,10 @@ class Modal extends Component {
     if(this.props.isOpen){
       return (
         <ReactCSSTransitionGroup transitionName={this.props.transitionName}>
-          <div className="modal">
-            {this.props.children}
+          <div className="modalWrapper" onClick={e => { if(e.target.className === 'modalWrapper') this.props.close() } }>
+            <div className="modal">
+              {this.props.children}
+            </div>
           </div>
         </ReactCSSTransitionGroup>
       );

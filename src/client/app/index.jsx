@@ -10,7 +10,10 @@ class App extends React.Component {
     this.state = {
       userType: "",
       loggedIn: false,
+      isModalOpen: false,
     }
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   getInitialState() {
@@ -30,8 +33,8 @@ class App extends React.Component {
     return (
       <div className='Header'>
           <h1>Your adventure begins here</h1>
-          <Button title={ "Dungeon Masters" } onClick={ this.openModal() }  />
-          <Modal isOpen={ this.state.isModalOpen } transitionName="modal-anim">
+          <Button title={ "Dungeon Masters" } onClick={ this.openModal }  />
+          <Modal isOpen={ this.state.isModalOpen } close={ this.closeModal } transitionName="modal-anim">
             <h3>Create Account</h3>
             <div className="body">
               <p>The body</p>
