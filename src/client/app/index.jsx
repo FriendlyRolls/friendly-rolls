@@ -2,6 +2,14 @@ import React from 'react';
 import {render} from 'react-dom';
 import Button from './Components/Button/index.jsx'
 import Modal from './Components/Modal/index.jsx'
+import List from './Components/List/index.jsx'
+import Item from './Components/Item/index.jsx'
+
+
+  const data = {
+    name: ["Test GARDER", 'DRAGOON', 'Heimdaill'],
+    id: 5
+  }
 
 class App extends React.Component {
   constructor(props){
@@ -29,6 +37,8 @@ class App extends React.Component {
     this.setState({ isModalOpen: false });
   }
 
+
+
   render () {
     return (
       <div className='Header'>
@@ -44,6 +54,7 @@ class App extends React.Component {
             <button onClick={ this.closeModal }>Close Modal</button>
           </Modal>
           <Button title={ "Heroes Welcome" } />
+          <List listItem={ data } />
       </div>
     );
   }
