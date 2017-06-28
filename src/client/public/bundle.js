@@ -10470,7 +10470,7 @@ var App = function (_React$Component) {
           _react2.default.createElement(
             'h3',
             null,
-            'Create Account'
+            'Log In '
           ),
           _react2.default.createElement(
             'div',
@@ -10478,7 +10478,11 @@ var App = function (_React$Component) {
             _react2.default.createElement(
               'p',
               null,
-              'The body'
+              _react2.default.createElement(
+                'button',
+                null,
+                'Log In Using Facebook'
+              )
             )
           ),
           _react2.default.createElement(

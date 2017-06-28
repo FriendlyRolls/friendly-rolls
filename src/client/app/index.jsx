@@ -35,9 +35,11 @@ class App extends React.Component {
           <h1>Your adventure begins here</h1>
           <Button title={ "Dungeon Masters" } onClick={ this.openModal }  />
           <Modal isOpen={ this.state.isModalOpen } close={ this.closeModal } transitionName="modal-anim">
-            <h3>Create Account</h3>
+            <h3>Log In </h3>
             <div className="body">
-              <p>The body</p>
+              <p>
+                <button>Log In Using Facebook</button>
+              </p>
             </div>
             <button onClick={ this.closeModal }>Close Modal</button>
           </Modal>
