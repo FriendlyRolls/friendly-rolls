@@ -10438,7 +10438,69 @@ var _index2 = _interopRequireDefault(_index);
 
 var _reactDom = __webpack_require__(59);
 
+<<<<<<< HEAD
+  _createClass(App, [{
+    key: 'getInitialState',
+    value: function getInitialState() {
+      return { isModalOpen: false };
+    }
+  }, {
+    key: 'openModal',
+    value: function openModal() {
+      console.log("BUTTON");
+      this.setState({ isModalOpen: true });
+    }
+  }, {
+    key: 'closeModal',
+    value: function closeModal() {
+      this.setState({ isModalOpen: false });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'Header' },
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Your adventure begins here'
+        ),
+        _react2.default.createElement(_index2.default, { title: "Dungeon Masters", onClick: this.openModal }),
+        _react2.default.createElement(
+          _index4.default,
+          { isOpen: this.state.isModalOpen, close: this.closeModal, transitionName: 'modal-anim' },
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Log In '
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'body' },
+            _react2.default.createElement(
+              'p',
+              null,
+              _react2.default.createElement(
+                'button',
+                null,
+                'Log In Using Facebook'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: this.closeModal },
+            'Close Modal'
+          )
+        ),
+        _react2.default.createElement(_index2.default, { title: "Welcome Heroes" })
+      );
+    }
+  }]);
+=======
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+>>>>>>> aad9459a48fc6cea1b7451fcde51fb881d92b670
 
 var App = function App() {
   return _react2.default.createElement(
