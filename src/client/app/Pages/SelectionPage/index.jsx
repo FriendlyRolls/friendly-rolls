@@ -3,8 +3,13 @@ import Button from '../../Components/Button/index.jsx'
 import Modal from '../../Components/Modal/index.jsx'
 import List from '../../Components/List/index.jsx'
 import Item from '../../Components/Item/index.jsx'
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import './styles.less'
+
+
+  const data = {
+    name: ["Test GARDER", 'DRAGOON', 'Heimdaill','Katie the Brave', 'Abtin the Magnificent', 'Charlie the shithead'],
+    id: 5
+  }
 
 class App extends React.Component {
   constructor(props){
@@ -13,6 +18,7 @@ class App extends React.Component {
     this.state = {
       userType: "",
       loggedIn: false,
+      characterList: [],
       isModalOpen: false,
     }
     this.openModal = this.openModal.bind(this);
@@ -31,23 +37,21 @@ class App extends React.Component {
     this.setState({ isModalOpen: false });
   }
 
+
   render () {
     return (
       <div className='Header'>
-          <h1>Your adventure begins here</h1>
-          <Button title={ "Dungeon Masters" } onClick={ this.openModal }  />
+          <h1>Choose your campaign</h1>
           <Modal isOpen={ this.state.isModalOpen } close={ this.closeModal } transitionName="modal-anim">
-            <h3>Log In </h3>
+            <h3>Choose your story</h3>
             <div className="body">
               <p>
-                <Link to={`/campaignlist`}>
-                    LogIn
-                </Link>
+                <button>Submit Campaign</button>
               </p>
             </div>
             <button onClick={ this.closeModal }>Close Modal</button>
           </Modal>
-          <Button title={ "Heroes Welcome" } />
+          <List listItem={ data } />
       </div>
     );
   }

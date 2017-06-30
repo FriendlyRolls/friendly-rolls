@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.less'
+import './styles.less'
 
 const Button = (props) => {
   console.log(props)
