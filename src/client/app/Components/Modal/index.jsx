@@ -1,5 +1,6 @@
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import React, { Component } from 'react';
+import './styles.less'
 
 class Modal extends Component {
   render () {
