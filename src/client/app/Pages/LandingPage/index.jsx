@@ -5,9 +5,8 @@ import List from '../../Components/List/index.jsx'
 import Item from '../../Components/Item/index.jsx'
 import './styles.less'
 
-
   const data = {
-    name: ["Test GARDER", 'DRAGOON', 'Heimdaill','Katie the Brave', 'Abtin the Magnificent', 'Charlie the shithead'],
+    name: ["Test GARDER", 'DRAGOON', 'Heimdaill','Katie the Brave', 'Abtin the Magnificent', 'Charlie the shithead', 'Angeline the Wise'],
     id: 5
   }
 
@@ -35,7 +34,6 @@ class App extends React.Component {
   closeModal() {
     this.setState({ isModalOpen: false });
   }
-
 
 
   render () {
