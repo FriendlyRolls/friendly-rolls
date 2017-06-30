@@ -43,7 +43,7 @@ class App extends React.Component {
             </div>
             <button onClick={ this.closeModal }>Close Modal</button>
           </Modal>
-          <Button title={ "Heroes Welcome" } />
+          <Button title={ "Welcome Heroes" } />
       </div>
     );
   }

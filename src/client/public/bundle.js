@@ -10491,7 +10491,7 @@ var App = function (_React$Component) {
             'Close Modal'
           )
         ),
-        _react2.default.createElement(_index2.default, { title: "Heroes Welcome" })
+        _react2.default.createElement(_index2.default, { title: "Welcome Heroes" })
       );
     }
   }]);
