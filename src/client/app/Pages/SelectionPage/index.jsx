@@ -44,15 +44,19 @@ class App extends React.Component {
       <div className='Header'>
           <h1>Choose your campaign</h1>
           <Modal isOpen={ this.state.isModalOpen } close={ this.closeModal } transitionName="modal-anim">
-            <h3>Choose your story</h3>
+            <h2>Start your story</h2>
             <div className="body">
               <p>
+                <h3>Title</h3>
+                <input placeholder='Campaign Title'></input>
+                <br />
                 <button>Submit Campaign</button>
               </p>
             </div>
             <button onClick={ this.closeModal }>Close Modal</button>
           </Modal>
           <List userType={ 'Campaigns' } listItem={ data.campaigns } />
+          <Button title={ "Create a new campaign" } onClick={ this.openModal }  />
       </div>
     );
   }
