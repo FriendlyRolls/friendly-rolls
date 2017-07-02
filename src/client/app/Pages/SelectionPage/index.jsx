@@ -8,6 +8,7 @@ import './styles.less'
 
   const data = {
     name: ["Test GARDER", 'DRAGOON', 'Heimdaill','Katie the Brave', 'Abtin the Magnificent', 'Charlie the shithead'],
+    campaigns: ['A tale of time', 'The Dragon\'s Keep', 'The Dark Winter', 'The fall of the 7 kingdoms', 'The Necromancer'],
     id: 5
   }
 
@@ -51,7 +52,7 @@ class App extends React.Component {
             </div>
             <button onClick={ this.closeModal }>Close Modal</button>
           </Modal>
-          <List listItem={ data } />
+          <List userType={ 'Campaigns' } listItem={ data.campaigns } />
       </div>
     );
   }
