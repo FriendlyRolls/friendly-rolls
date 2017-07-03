@@ -33,16 +33,18 @@ class App extends React.Component {
 
   render () {
     return (
-      <div className='Header'>
+      <div className='body'>
           <h1>Your adventure begins here</h1>
           <Button title={ "Dungeon Masters" } onClick={ this.openModal }  />
           <Modal isOpen={ this.state.isModalOpen } close={ this.closeModal } transitionName="modal-anim">
             <h3>Log In </h3>
-            <div className="body">
+            <div>
               <p>
-                <Link to={`/campaignlist`}>
-                    LogIn
-                </Link>
+                <button>
+                  <Link to={`/campaignlist`}>
+                      LogIn
+                  </Link>
+              </button>
               </p>
             </div>
             <button onClick={ this.closeModal }>Close Modal</button>
