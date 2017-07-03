@@ -3,6 +3,7 @@ import Button from '../../Components/Button/index.jsx'
 import Modal from '../../Components/Modal/index.jsx'
 import List from '../../Components/List/index.jsx'
 import Item from '../../Components/Item/index.jsx'
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import './styles.less'
 
 
@@ -50,7 +51,7 @@ class App extends React.Component {
                 <h3>Title</h3>
                 <input placeholder='Campaign Title'></input>
                 <br />
-                <button>Submit Campaign</button>
+                <button><Link to={'/storypage'}>Submit Campaign</Link></button>
               </p>
             </div>
             <button onClick={ this.closeModal }>Close Modal</button>

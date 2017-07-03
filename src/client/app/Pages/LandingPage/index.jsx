@@ -40,9 +40,11 @@ class App extends React.Component {
             <h3>Log In </h3>
             <div>
               <p>
-                <Link to={`/campaignlist`}>
-                    LogIn
-                </Link>
+                <button>
+                  <Link to={`/campaignlist`}>
+                      LogIn
+                  </Link>
+              </button>
               </p>
             </div>
             <button onClick={ this.closeModal }>Close Modal</button>
