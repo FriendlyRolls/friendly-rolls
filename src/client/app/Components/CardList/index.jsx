@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Card from '../Card/index.jsx'
+import './styles.less'
 
 class CardList extends Component {
     render () {
@@ -8,8 +9,8 @@ class CardList extends Component {
             return ( <Card userType={ this.props.userType } name={ card } />)
         })
         return (
-            <div className="cardWrapper">
-                <ul>
+            <div className='cardWrapper'>
+                <ul className='cardOuter'>
                     {cardArray}
                 </ul>
             </div>
