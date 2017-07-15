@@ -12,6 +12,8 @@ class App extends React.Component {
 
     this.state = {
       userType: "",
+      username: "",
+      password: "",
       loggedIn: false,
       isModalOpen: false,
     }
@@ -31,7 +33,25 @@ class App extends React.Component {
     this.setState({ isModalOpen: false });
   }
 
+  savetoDB(username, password) {
+    console.log("THIS IS BEING CALLED")
+    const url = '/api/login';
+    const body = JSON.stringify({
+      username: username,
+      password: password,
+    });
+
+    fetch(url, {
+      method: "POST",
+      body: body,
+    })
+    .then(() => {
+      console.log("Saved")
+    })
+  }
+
   render () {
+    console.log(this.state);
     return (
       <div className='body'>
           <h1>Your adventure begins here</h1>
@@ -40,15 +60,14 @@ class App extends React.Component {
             <h3>Log In </h3>
             <div>
               <p>
-                <input placeholder="email"></input>
+                <input placeholder="email" onChange={event => this.setState({ email: event.target.value })}></input>
                 <br></br>
-                <input placeholder="password"></input>
+                <input placeholder="password"  onChange={event => this.setState({ password: event.target.value })}></input>
                 <br></br>
-                <button>
                   <Link to={`/campaignlist`}>
-                      LogIn
+                    <button  onClick={ this.savetoDB(this.state.username,this.state.password) }>LogIn</button>
                   </Link>
-              </button>
+
               </p>
             </div>
             <button onClick={ this.closeModal }>Close Modal</button>
