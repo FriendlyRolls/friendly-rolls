@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import LandingPage from './Pages/LandingPage/index.jsx'
 import SelectionPage from './Pages/SelectionPage/index.jsx'
 import CampaignPage from './Pages/CampaignPage/index.jsx'
+import CharacterPage from './Pages/CharacterPage/index.jsx'
 import HubPage from './Pages/HubPage/index.jsx'
 import {render} from 'react-dom';
 import './less/styles.less'
@@ -15,6 +16,7 @@ const App = () => (
       <Route exact path="/campaignlist" component={SelectionPage} />
       <Route exact path="/storypage" component={CampaignPage} />
       <Route exact path="/hub" component={HubPage} />
+      <Route exact path="/characterlist" component={CharacterPage} />
     </div>
   </Router>
 )
