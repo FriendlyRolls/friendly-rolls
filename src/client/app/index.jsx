@@ -6,10 +6,11 @@ import SelectionPage from './Pages/SelectionPage/index.jsx'
 import CampaignPage from './Pages/CampaignPage/index.jsx'
 import HubPage from './Pages/HubPage/index.jsx'
 import {render} from 'react-dom';
+import './less/styles.less'
 
 const App = () => (
   <Router>
-    <div>
+    <div className="body">
       <Route exact path="/" component={LandingPage}/>
       <Route exact path="/campaignlist" component={SelectionPage} />
       <Route exact path="/storypage" component={CampaignPage} />
