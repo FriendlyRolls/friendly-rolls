@@ -4,9 +4,8 @@ import './styles.less'
 
 class CardList extends Component {
     render () {
-        let cardArray = this.props.cardItem.map(card => {
-            console.log("card",card);
-            return ( <Card userType={ this.props.userType } name={ card } />)
+        let cardArray = this.props.cardItem.name.map((card, i) => {
+            return ( <Card userType={ this.props.userType } name={ card } image={ this.props.cardItem.img[i] } />)
         })
         return (
             <div className='cardWrapper'>

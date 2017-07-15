@@ -5,7 +5,6 @@ import './styles.less'
 class List extends Component {
     render () {
         let listArray = this.props.listItem.map(item => {
-            console.log("item",item);
             return ( <Item userType={ this.props.userType } name={ item } />)
         })
         return (
