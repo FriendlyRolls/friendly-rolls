@@ -56,7 +56,7 @@ class App extends React.Component {
             </div>
             <button onClick={ this.closeModal }>Close Modal</button>
           </Modal>
-          <List userType={ 'Campaigns' } listItem={ data.campaigns } />
+          <Link to={'/hub'}><List userType={ 'Campaigns' } listItem={ data.campaigns } /></Link>
           <Button title={ "Create a new campaign" } onClick={ this.openModal }  />
       </div>
     );
