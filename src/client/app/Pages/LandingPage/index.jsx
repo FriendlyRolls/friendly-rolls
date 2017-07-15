@@ -40,6 +40,10 @@ class App extends React.Component {
             <h3>Log In </h3>
             <div>
               <p>
+                <input placeholder="email"></input>
+                <br></br>
+                <input placeholder="password"></input>
+                <br></br>
                 <button>
                   <Link to={`/campaignlist`}>
                       LogIn

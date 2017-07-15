@@ -1,49 +1,66 @@
-import React, { Component } from 'react'
-import CharacterList from '../../Components/CharacterList/index.jsx'
-import CharacterCard from '../../Components/CharacterCard/index.jsx'
-import './styles.less'
+import React from 'react';
+import Button from '../../Components/Button/index.jsx'
+import Modal from '../../Components/Modal/index.jsx'
+import List from '../../Components/List/index.jsx'
+import Item from '../../Components/Item/index.jsx'
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
-class CharacterPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      characters: [
-        { campaignID: "CampaignID",
-          name: "AdventureMan",
-          image: "http://www.google.com"
-        },
-        { campaignID: "ID23516635246363",
-          name: "Other Adventure Guy",
-          image: "http://www.amazon.com"
-        },
-        { campaignID: "ID23516635246363",
-          name: "Dwarf",
-          image: "http://www.amazon.com"
-        }
-      ],
-    }
+import './styles.less'
+
+
+  const data = {
+    name: ["Test GARDER", 'DRAGOON', 'Heimdaill','Katie the Brave', 'Abtin the Magnificent', 'Charlie the shithead'],
+    campaigns: ['A tale of time', 'The Dragon\'s Keep', 'The Dark Winter', 'The fall of the 7 kingdoms', 'The Necromancer'],
+    id: 5
   }
+
+class App extends React.Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      userType: "",
+      loggedIn: false,
+      characterList: [],
+      isModalOpen: false,
+    }
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  getInitialState() {
+    return { isModalOpen: false};
+  }
+
+  openModal() {
+    this.setState({ isModalOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ isModalOpen: false });
+  }
+
+
   render () {
     return (
-      <div id="character-page-wrapper">
-        <header>
-          {/* The button to return to the other page will go here as well */}
-          <h1>Select your character</h1>
-        </header>
-        <section className="character-list-container">
-          <section>
-            <div className="character-list-panel">
-              <CharacterList characters={this.state.characters} />
+      <div className='Header'>
+          <h1>Choose your Hero</h1>
+          <Modal isOpen={ this.state.isModalOpen } close={ this.closeModal } transitionName="modal-anim">
+            <h2>Hello Adventurer</h2>
+            <div className="body">
+              <p>
+                <h3>Title</h3>
+                <input placeholder='Character Creation'></input>
+                <br />
+                <button><Link to={'/hub'}>Hub</Link></button>
+              </p>
             </div>
-          </section>
-          <section className="button-div">
-            <div className="add-character-button">
-              <button>ADD</button>
-            </div>
-          </section>
-        </section>
+            <button onClick={ this.closeModal }>Close Modal</button>
+          </Modal>
+          <Link to={'/hub'}><List userType={ 'Hero' } listItem={ data.name } /></Link>
+          <Button title={ "Create a new hero" } onClick={ this.openModal }  />
       </div>
-    )
+    );
   }
 }
-export default CharacterPage;
+
+export default App;
