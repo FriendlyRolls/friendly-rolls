@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var path = require('path');
 var api = require('./api/api');
 var config = require('./config/config');
 var logBot = require('./util/logBot');
@@ -19,10 +20,10 @@ app.use('/api', api);
 
 // serve client app
 app.get('/', function(req, res) {
-  res.sendFile(__dirname + "/src/client/public/index.html");
+  res.sendFile(path.resolve("server", "../src/client/public/index.html"));
 });
 app.get('/bundle.js', function(req, res) {
-  res.sendFile(__dirname + "/src/client/public/bundle.js");
+  res.sendFile(path.resolve("server", "../src/client/public/bundle.js"));
 });
 
 // export app
