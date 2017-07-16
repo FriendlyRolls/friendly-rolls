@@ -4,6 +4,7 @@ var path = require('path');
 var api = require('./api/api');
 var config = require('./config/config');
 var logBot = require('./util/logBot');
+var auth = require('./auth/routes');
 
 // connect to db via config
 require('mongoose').connect(config.db.url);
@@ -17,6 +18,19 @@ require('./middleware/middleware')(app);
 
 // setup api
 app.use('/api', api);
+app.use('/auth', auth);
+
+// global error handling
+app.use(function(err, req, res, next) {
+  // jwt validation
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).send('Invalid token');
+    return;
+  }
+
+  logBot.error(err.stack);
+  res.status(500).send('Error: invalid token');
+});
 
 // serve client app
 app.get('/', function(req, res) {
