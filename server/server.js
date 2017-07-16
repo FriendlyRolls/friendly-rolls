@@ -11,6 +11,9 @@ if (config.seed) {
   require('./util/seed');
 }
 
+// add app middleware
+require('./middleware/middleware')(app);
+
 // setup api
 app.use('/api', api);
 
