@@ -8,7 +8,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var config = require('./server/config/config');
 // var app = require('./server/server');
+var logBot = require('./server/util/logBot');
 
-var port = 3000;
-app.listen(port);
-console.log('listening on http://localhost:' + port);
+app.listen(config.port);
+logBot.log('listening on http://localhost:' + config.port);
