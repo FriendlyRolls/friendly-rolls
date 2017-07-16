@@ -17,5 +17,13 @@ require('./middleware/middleware')(app);
 // setup api
 app.use('/api', api);
 
+// serve client app
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + "/src/client/public/index.html");
+});
+app.get('/bundle.js', function(req, res) {
+  res.sendFile(__dirname + "/src/client/public/bundle.js");
+});
+
 // export app
 module.exports = app;
