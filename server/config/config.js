@@ -29,6 +29,6 @@ try {
 console.log('envConfig setting:\n=================\n', envConfig);
 // merge the two config files and export
 var mergedConfig = _.merge(config, envConfig);
-console.log('this is mergedConfig:\n', mergedConfig);
+console.log('mergedConfig:\n============\n', mergedConfig);
 
 module.exports = mergedConfig;

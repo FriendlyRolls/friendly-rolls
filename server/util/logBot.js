@@ -11,7 +11,7 @@ var noop = function(){};
 // sets logging depending on config settings
 var consoleLog = config.logging ? console.log.bind(console) : noop;
 
-var updateBot = {
+var logBot = {
   log: function() {
     var tag = '[ ⚡️  UPDATES ]'.green;
     var args = _.toArray(arguments)
@@ -42,4 +42,4 @@ var updateBot = {
   }
 };
 
-module.exports = updateBot;
+module.exports = logBot;
