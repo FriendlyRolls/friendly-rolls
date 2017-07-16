@@ -1,7 +1,5 @@
-// updateBot makes custom updates on the console
-//==============================================
-
-// import colors for updates
+// logBot console updates
+//===========================================
 require('colors');
 var _ = require('lodash');
 var config = require('../config/config');

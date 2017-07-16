@@ -1,3 +1,5 @@
+// friendly-rolls server
+//===========================================
 var express = require('express');
 var app = express();
 var path = require('path');
@@ -32,7 +34,7 @@ app.use(function(err, req, res, next) {
   res.status(500).send('Error: invalid token');
 });
 
-// serve client app
+// serve client src
 app.get('/', function(req, res) {
   res.sendFile(path.resolve("server", "../src/client/public/index.html"));
 });

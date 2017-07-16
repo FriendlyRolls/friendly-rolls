@@ -1,3 +1,5 @@
+// dev settings
+//===========================================
 module.exports = {
   // enable logging & seeding of db
   logging: true,

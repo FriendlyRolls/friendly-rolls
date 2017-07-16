@@ -1,7 +1,5 @@
 // seeding MongoDB
-//==========================================
-
-// import users
+//===========================================
 var User = require('../api/user/userModel');
 var _ = require('lodash');
 var logBot = require('./logBot');
@@ -49,6 +47,7 @@ var createUsers = function(data) {
     });
 };
 
+// set db with users
 setDB()
   .then(createUsers)
   .then(logBot.log.bind(logBot))

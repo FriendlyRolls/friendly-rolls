@@ -1,3 +1,5 @@
+// user controller
+//===========================================
 var User = require('./userModel');
 var _ = require('lodash');
 var signToken = require('../../auth/auth').signToken;

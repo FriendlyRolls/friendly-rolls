@@ -1,3 +1,5 @@
+// auth controller
+//===========================================
 var User = require('../api/user/userModel');
 var signToken = require('./auth').signToken;
 

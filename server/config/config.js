@@ -1,7 +1,6 @@
-// configuration file to set environment
+// config to set up environment
 // =====================================
-
-// import lodash to allow merge method
+// import lodash for merging
 var _ = require('lodash');
 
 var config = {

@@ -1,3 +1,6 @@
+// json web token authentication
+//===================================
+// import dependencies
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 var config = require('../config/config');
@@ -71,6 +74,5 @@ exports.signToken = function(id) {
   return jwt.sign(
     {_id: id},
     config.secrets.jwt
-    // {expiresInMinutes: config.expireTime}
   );
 };
