@@ -6,6 +6,8 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var config = require('./server/config/config');
+
 
 var port = 3000;
 app.listen(port);
