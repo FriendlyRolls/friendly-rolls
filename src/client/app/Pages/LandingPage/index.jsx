@@ -5,6 +5,7 @@ import List from '../../Components/List/index.jsx'
 import Item from '../../Components/Item/index.jsx'
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import './styles.less'
+import axios from 'axios'
 
 class App extends React.Component {
   constructor(props){
@@ -12,13 +13,14 @@ class App extends React.Component {
 
     this.state = {
       userType: "",
-      username: "",
-      password: "",
+      username: "Abtin",
+      password: "DMaster",
       loggedIn: false,
       isModalOpen: false,
     }
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.requestAuth = this.requestAuth.bind(this);
   }
 
   getInitialState() {
@@ -33,21 +35,25 @@ class App extends React.Component {
     this.setState({ isModalOpen: false });
   }
 
-  savetoDB(username, password) {
-    console.log("THIS IS BEING CALLED")
-    const url = '/api/login';
-    const body = JSON.stringify({
-      username: username,
-      password: password,
+  requestAuth() {
+    console.log("requsting token, please wait...");
+    axios({
+      method: 'post',
+      url: 'auth/signin',
+      data: {
+        username: this.state.username,
+        password: this.state.password
+      }
+    })
+    .then(function (response) {
+      console.log('success, auth verified!');
+      localStorage.setItem('token', response.data.token);
+      sessionStorage.setItem('token', response.data.token);
+      // console.log('jsonwebtoken: ', sessionStorage.getItem('token'));
+    })
+    .catch(function (error) {
+      console.log(error);
     });
-
-    fetch(url, {
-      method: "POST",
-      body: body,
-    })
-    .then(() => {
-      console.log("Saved")
-    })
   }
 
   render () {
@@ -60,14 +66,13 @@ class App extends React.Component {
             <h3>Log In </h3>
             <div>
               <p>
-                <input placeholder="email" onChange={event => this.setState({ email: event.target.value })}></input>
+                <input placeholder="username" onChange={event => this.setState({ username: event.target.value })}></input>
                 <br></br>
                 <input placeholder="password"  onChange={event => this.setState({ password: event.target.value })}></input>
                 <br></br>
                   <Link to={`/campaignlist`}>
-                    <button  onClick={ this.savetoDB(this.state.username,this.state.password) }>LogIn</button>
+                    <button onClick={ this.requestAuth }>LogIn</button>
                   </Link>
-
               </p>
             </div>
             <button onClick={ this.closeModal }>Close Modal</button>
