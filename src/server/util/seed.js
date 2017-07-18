@@ -7,10 +7,10 @@ var logBot = require('./logBot');
 logBot.log('Initializing MongoDB seeds');
 
 var users = [
-  {username: 'Abtin', password: 'DMaster'},
-  {username: 'AG', password: 'Algae'},
-  {username: 'Falko', password: 'Falkie'},
-  {username: 'Max', password: 'Maximus'},
+  {username: 'Abtin', password: 'DMaster', usertype: 'DM'},
+  {username: 'AG', password: 'Algae', usertype: 'Hero'},
+  {username: 'Falko', password: 'Falkie', usertype: 'DM'},
+  {username: 'Max', password: 'Maximus', usertype: 'Hero'},
 ];
 
 // creating document

@@ -17115,9 +17115,9 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      userType: "",
       username: "Abtin",
       password: "DMaster",
+      usertype: "",
       loggedIn: false,
       isModalOpen: false
     };
@@ -17155,6 +17155,7 @@ var App = function (_React$Component) {
         }
       }).then(function (response) {
         console.log('success, auth verified!');
+        // console.log(response);
         localStorage.setItem('token', response.data.token);
         sessionStorage.setItem('token', response.data.token);
         // console.log('jsonwebtoken: ', sessionStorage.getItem('token'));

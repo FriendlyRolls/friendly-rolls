@@ -10,10 +10,14 @@ var UserSchema = new Schema({
     required: true,
     unique: true
   },
-
   password: {
     type: String,
     required: true
+  },
+  usertype: {
+    type: String,
+    required: true,
+    default: "Hero"
   }
 });
 

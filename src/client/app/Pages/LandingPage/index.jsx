@@ -12,9 +12,9 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      userType: "",
       username: "Abtin",
       password: "DMaster",
+      usertype: "",
       loggedIn: false,
       isModalOpen: false,
     }
@@ -42,11 +42,12 @@ class App extends React.Component {
       url: 'auth/signin',
       data: {
         username: this.state.username,
-        password: this.state.password
+        password: this.state.password,
       }
     })
     .then(function (response) {
       console.log('success, auth verified!');
+      // console.log(response);
       localStorage.setItem('token', response.data.token);
       sessionStorage.setItem('token', response.data.token);
       // console.log('jsonwebtoken: ', sessionStorage.getItem('token'));
