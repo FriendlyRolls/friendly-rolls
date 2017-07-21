@@ -17106,6 +17106,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var inputStyle = {
+  display: "block"
+};
+
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -17156,8 +17160,12 @@ var App = function (_React$Component) {
       }).then(function (response) {
         console.log('success, auth verified!');
         // console.log(response);
-        localStorage.setItem('token', response.data.token);
-        sessionStorage.setItem('token', response.data.token);
+        if (!localStorage.getItem('token')) {
+          localStorage.setItem('token', response.data.token);
+          sessionStorage.setItem('token', response.data.token);
+          console.log('token stored!');
+        }
+        console.log('token already present!');
         // console.log('jsonwebtoken: ', sessionStorage.getItem('token'));
       }).catch(function (error) {
         console.log(error);
@@ -17189,25 +17197,21 @@ var App = function (_React$Component) {
           _react2.default.createElement(
             'div',
             null,
+            _react2.default.createElement('input', { style: inputStyle, placeholder: 'username', onChange: function onChange(event) {
+                return _this2.setState({ username: event.target.value });
+              } }),
+            _react2.default.createElement('br', null),
+            _react2.default.createElement('input', { style: inputStyle, placeholder: 'password', onChange: function onChange(event) {
+                return _this2.setState({ password: event.target.value });
+              } }),
+            _react2.default.createElement('br', null),
             _react2.default.createElement(
-              'p',
-              null,
-              _react2.default.createElement('input', { placeholder: 'username', onChange: function onChange(event) {
-                  return _this2.setState({ username: event.target.value });
-                } }),
-              _react2.default.createElement('br', null),
-              _react2.default.createElement('input', { placeholder: 'password', onChange: function onChange(event) {
-                  return _this2.setState({ password: event.target.value });
-                } }),
-              _react2.default.createElement('br', null),
+              _reactRouterDom.Link,
+              { to: '/campaignlist' },
               _react2.default.createElement(
-                _reactRouterDom.Link,
-                { to: '/campaignlist' },
-                _react2.default.createElement(
-                  'button',
-                  { onClick: this.requestAuth },
-                  'LogIn'
-                )
+                'button',
+                { onClick: this.requestAuth },
+                'LogIn'
               )
             )
           ),

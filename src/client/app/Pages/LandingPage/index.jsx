@@ -7,6 +7,10 @@ import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import './styles.less'
 import axios from 'axios'
 
+const inputStyle = {
+  display: "block"
+};
+
 class App extends React.Component {
   constructor(props){
     super(props)
@@ -48,8 +52,12 @@ class App extends React.Component {
     .then(function (response) {
       console.log('success, auth verified!');
       // console.log(response);
-      localStorage.setItem('token', response.data.token);
-      sessionStorage.setItem('token', response.data.token);
+      if(!localStorage.getItem('token')) {
+        localStorage.setItem('token', response.data.token);
+        sessionStorage.setItem('token', response.data.token);
+        console.log('token stored!');
+      }
+      console.log('token already present!');
       // console.log('jsonwebtoken: ', sessionStorage.getItem('token'));
     })
     .catch(function (error) {
@@ -66,15 +74,13 @@ class App extends React.Component {
           <Modal isOpen={ this.state.isModalOpen } close={ this.closeModal } transitionName="modal-anim">
             <h3>Log In </h3>
             <div>
-              <p>
-                <input placeholder="username" onChange={event => this.setState({ username: event.target.value })}></input>
+                <input style={inputStyle} placeholder="username" onChange={event => this.setState({ username: event.target.value })}></input>
                 <br></br>
-                <input placeholder="password"  onChange={event => this.setState({ password: event.target.value })}></input>
+                <input style={inputStyle} placeholder="password"  onChange={event => this.setState({ password: event.target.value })}></input>
                 <br></br>
                   <Link to={`/campaignlist`}>
                     <button onClick={ this.requestAuth }>LogIn</button>
                   </Link>
-              </p>
             </div>
             <button onClick={ this.closeModal }>Close Modal</button>
           </Modal>
