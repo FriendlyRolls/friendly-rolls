@@ -16,8 +16,8 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      username: "Abtin",
-      password: "DMaster",
+      username: "",
+      password: "",
       usertype: "",
       loggedIn: false,
       isModalOpen: false,
@@ -70,21 +70,23 @@ class App extends React.Component {
     return (
       <div className='body'>
           <h1>Your adventure begins here</h1>
-          <Button title={ "Dungeon Masters" } onClick={ this.openModal }  />
+          <Button title={ "Dungeon Masters" } onClick={ this.openModal } />
+          <Button title={ "Heroes Welcome" } onClick={ this.openModal } />
           <Modal isOpen={ this.state.isModalOpen } close={ this.closeModal } transitionName="modal-anim">
             <h3>Log In </h3>
-            <div>
-                <input style={inputStyle} placeholder="username" onChange={event => this.setState({ username: event.target.value })}></input>
+            <form className="form-group">
+              <label htmlFor="username"></label>
+              <input type="text" className="form-control" style={ inputStyle } placeholder="username" onChange={event => this.setState({ username: event.target.value })}></input>
+              <br></br>
+              <label htmlFor="password"></label>
+              <input type="password" className="form-control" style={ inputStyle } placeholder="password"  onChange={event => this.setState({ password: event.target.value })}></input>
                 <br></br>
-                <input style={inputStyle} placeholder="password"  onChange={event => this.setState({ password: event.target.value })}></input>
-                <br></br>
-                  <Link to={`/campaignlist`}>
-                    <button onClick={ this.requestAuth }>LogIn</button>
-                  </Link>
-            </div>
+                <Link to={`/campaignlist`}>
+                  <button className="btn btn-primary" onClick={ this.requestAuth }>LogIn</button>
+                </Link>
+            </form>
             <button onClick={ this.closeModal }>Close Modal</button>
           </Modal>
-          <Button title={ "Heroes Welcome" } />
       </div>
     );
   }

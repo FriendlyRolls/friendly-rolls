@@ -17119,8 +17119,8 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      username: "Abtin",
-      password: "DMaster",
+      username: "",
+      password: "",
       usertype: "",
       loggedIn: false,
       isModalOpen: false
@@ -17186,6 +17186,7 @@ var App = function (_React$Component) {
           'Your adventure begins here'
         ),
         _react2.default.createElement(_index2.default, { title: "Dungeon Masters", onClick: this.openModal }),
+        _react2.default.createElement(_index2.default, { title: "Heroes Welcome", onClick: this.openModal }),
         _react2.default.createElement(
           _index4.default,
           { isOpen: this.state.isModalOpen, close: this.closeModal, transitionName: 'modal-anim' },
@@ -17195,13 +17196,15 @@ var App = function (_React$Component) {
             'Log In '
           ),
           _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement('input', { style: inputStyle, placeholder: 'username', onChange: function onChange(event) {
+            'form',
+            { className: 'form-group' },
+            _react2.default.createElement('label', { htmlFor: 'username' }),
+            _react2.default.createElement('input', { type: 'text', className: 'form-control', style: inputStyle, placeholder: 'username', onChange: function onChange(event) {
                 return _this2.setState({ username: event.target.value });
               } }),
             _react2.default.createElement('br', null),
-            _react2.default.createElement('input', { style: inputStyle, placeholder: 'password', onChange: function onChange(event) {
+            _react2.default.createElement('label', { htmlFor: 'password' }),
+            _react2.default.createElement('input', { type: 'password', className: 'form-control', style: inputStyle, placeholder: 'password', onChange: function onChange(event) {
                 return _this2.setState({ password: event.target.value });
               } }),
             _react2.default.createElement('br', null),
@@ -17210,7 +17213,7 @@ var App = function (_React$Component) {
               { to: '/campaignlist' },
               _react2.default.createElement(
                 'button',
-                { onClick: this.requestAuth },
+                { className: 'btn btn-primary', onClick: this.requestAuth },
                 'LogIn'
               )
             )
@@ -17220,8 +17223,7 @@ var App = function (_React$Component) {
             { onClick: this.closeModal },
             'Close Modal'
           )
-        ),
-        _react2.default.createElement(_index2.default, { title: "Heroes Welcome" })
+        )
       );
     }
   }]);
