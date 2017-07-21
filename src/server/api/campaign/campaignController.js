@@ -1,10 +1,10 @@
 // campaign controller
 //===========================================
-var User = require('./campaignModel');
+var  Campaign = require('./campaignModel');
 var _ = require('lodash');
 
 exports.get = function(req, res, next) {
-  User.find({})
+  Campaign.find({})
     .select('-campaignName')
     .exec()
     .then(function(campaigns){
