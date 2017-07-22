@@ -11,4 +11,12 @@ var CampaignSchema = new Schema({
   },
 });
 
+CampaignSchema.methods = {
+  toJson: function() {
+    var obj = this.toObject()
+    delete obj.password;
+    return obj;
+  }
+};
+
 module.exports = mongoose.model('campaign', CampaignSchema);
