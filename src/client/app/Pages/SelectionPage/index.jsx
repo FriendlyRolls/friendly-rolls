@@ -5,18 +5,14 @@ import List from '../../Components/List/index.jsx'
 import Item from '../../Components/Item/index.jsx'
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import './styles.less'
-
-
   const data = {
     name: ["Test GARDER", 'DRAGOON', 'Heimdaill','Katie the Brave', 'Abtin the Magnificent', 'Charlie the shithead'],
     campaigns: ['A tale of time', 'The Dragon\'s Keep', 'The Dark Winter', 'The fall of the 7 kingdoms', 'The Necromancer'],
     id: 5
   }
-
 class App extends React.Component {
   constructor(props){
     super(props)
-
     this.state = {
       userType: "",
       loggedIn: false,
@@ -26,24 +22,19 @@ class App extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
-
   getInitialState() {
     return { isModalOpen: false};
   }
-
   openModal() {
     this.setState({ isModalOpen: true });
   }
-
   closeModal() {
     this.setState({ isModalOpen: false });
   }
-
-
   render () {
     return (
       <div className='Header'>
-          <h1>Choose your campaign</h1>
+          <h1 className="campaign-page-title">Choose your campaign</h1>
           <Modal isOpen={ this.state.isModalOpen } close={ this.closeModal } transitionName="modal-anim">
             <h2>Start your story</h2>
             <div className="body">
@@ -62,5 +53,4 @@ class App extends React.Component {
     );
   }
 }
-
 export default App;

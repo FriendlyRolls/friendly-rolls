@@ -17181,12 +17181,25 @@ var App = function (_React$Component) {
         'div',
         { className: 'body' },
         _react2.default.createElement(
-          'h1',
-          null,
-          'Your adventure begins here'
+          'header',
+          { className: 'landing-page-title-container' },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'FriendlyRolls'
+          ),
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Your adventure begins here'
+          )
         ),
-        _react2.default.createElement(_index2.default, { title: "Dungeon Masters", onClick: this.openModal }),
-        _react2.default.createElement(_index2.default, { title: "Heroes Welcome", onClick: this.openModal }),
+        _react2.default.createElement(
+          'div',
+          { className: 'landing-page-button-container' },
+          _react2.default.createElement(_index2.default, { className: 'dungeon-button', title: "Dungeon Masters", onClick: this.openModal }),
+          _react2.default.createElement(_index2.default, { className: 'heroes-button', title: "Heroes Welcome", onClick: this.openModal })
+        ),
         _react2.default.createElement(
           _index4.default,
           { isOpen: this.state.isModalOpen, close: this.closeModal, transitionName: 'modal-anim' },
@@ -17203,7 +17216,6 @@ var App = function (_React$Component) {
                 return _this2.setState({ username: event.target.value });
               } }),
             _react2.default.createElement('br', null),
-            _react2.default.createElement('label', { htmlFor: 'password' }),
             _react2.default.createElement('input', { type: 'password', className: 'form-control', style: inputStyle, placeholder: 'password', onChange: function onChange(event) {
                 return _this2.setState({ password: event.target.value });
               } }),
@@ -28544,7 +28556,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, ".modal-anim-enter {\n  opacity: 0.00;\n  transform: scale(0.7);\n  transition: all 0.2s;\n}\n.modal-anim-enter.modal-anim-enter-active {\n  opacity: 1;\n  transform: scale(1);\n}\n.modal-anim-leave {\n  opacity: 1;\n  transform: scale(1);\n  transition: all 0.2s;\n}\n.modal-anim-leave.modal-anim-leave-active {\n  opacity: 0.00;\n  transform: scale(0.7);\n}\n.modal {\n  position: center;\n  width: 50%;\n  margin: 0 auto;\n  background-color: #C4F593;\n}\n.modalWrapper {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\nbutton {\n  background-color: #3fc4f4;\n  border-radius: 50px;\n  color: #151819;\n  padding: 25px;\n  font-size: 18px;\n  font-family: 'Architects Daughter', cursive;\n}\n", ""]);
+exports.push([module.i, ".modal-anim-enter {\n  opacity: 0.00;\n  transform: scale(0.7);\n  transition: all 0.2s;\n}\n.modal-anim-enter.modal-anim-enter-active {\n  opacity: 1;\n  transform: scale(1);\n}\n.modal-anim-leave {\n  opacity: 1;\n  transform: scale(1);\n  transition: all 0.2s;\n}\n.modal-anim-leave.modal-anim-leave-active {\n  opacity: 0.00;\n  transform: scale(0.7);\n}\n.modal {\n  position: center;\n  width: 500px;\n  height: 350px;\n  margin: 0 auto;\n  background-color: #C4F593;\n}\n.modalWrapper {\n  position: fixed;\n  z-index: 1;\n  top: 0;\n  width: 100%;\n  height: 100%;\n}\nbutton {\n  background-color: #3fc4f4;\n  border-radius: 50px;\n  color: #151819;\n  padding: 25px;\n  font-size: 18px;\n  font-family: 'Architects Daughter', cursive;\n}\n", ""]);
 
 // exports
 
@@ -28679,7 +28691,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "h1 {\n  font-family: 'Architects Daughter', cursive;\n}\n", ""]);
+exports.push([module.i, "body .landing-page-title-container {\n  margin-top: 10vh;\n}\nbody .landing-page-title-container h1 {\n  font-family: 'The Wild Breath of Zelda', 'Architects Daughter', cursive;\n  color: white;\n  font-size: 110px;\n  text-align: center;\n  margin-bottom: 0;\n}\n@media (max-width: 640px) {\n  body .landing-page-title-container h1 {\n    font-size: 73.33333333px;\n  }\n}\nbody .landing-page-title-container h3 {\n  margin-top: 0;\n  margin-bottom: 15vh;\n  font-family: 'The Wild Breath of Zelda', 'Architects Daughter', cursive;\n  color: white;\n  text-align: center;\n}\nbody .landing-page-button-container {\n  display: flex;\n  flex-direction: row;\n  align-self: center;\n  margin-left: auto;\n  margin-right: auto;\n  width: 40vw;\n  justify-content: space-around;\n}\nbody .landing-page-button-container .Button {\n  cursor: pointer;\n  background-color: #DC143C;\n  opacity: 1;\n}\nbody .landing-page-button-container .Button:hover {\n  opacity: .9;\n}\n", ""]);
 
 // exports
 
@@ -29651,7 +29663,7 @@ var App = function (_React$Component) {
         { className: 'Header' },
         _react2.default.createElement(
           'h1',
-          null,
+          { className: 'campaign-page-title' },
           'Choose your campaign'
         ),
         _react2.default.createElement(
@@ -29747,7 +29759,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "h1 {\n  color: white;\n}\n", ""]);
+exports.push([module.i, ".campaign-page-title {\n  color: white;\n  font-family: 'The Wild Breath of Zelda', cursive;\n  margin-left: 30px;\n  margin-top: 30px;\n}\n.listWrapper {\n  width: 100%;\n  margin: 0;\n}\n.Header .Button {\n  margin-left: 20px;\n  background-color: #DC1413;\n}\n", ""]);
 
 // exports
 
